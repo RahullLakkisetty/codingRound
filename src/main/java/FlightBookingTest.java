@@ -32,38 +32,24 @@ public class FlightBookingTest extends BaseUtility{
 	    
 	    @FindBy(id = "SearchBtn")
 	    private WebElement searchFlights;
+	
+	    
+	     @BeforeSuite	
+	    public void intializeDriver() throws IOException
+	    {
+	    driver=UtilityBase.getWebDriver();
+	    driver.get("https://www.cleartrip.com");
+	    waitFor(2000);
+	    driver.manage().window().maximize();
+	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	    PageFactory.initElements(driver, this);   
+	    }
 	   
 
 
 
 
-    private void waitFor(int durationInMilliSeconds) {
-        try {
-            Thread.sleep(durationInMilliSeconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-    }
+ 
 
 
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    private void setDriverPath() {
-        if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
-        if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        }
-        if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-        }
-    }
 }
