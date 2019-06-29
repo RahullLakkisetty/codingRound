@@ -64,7 +64,11 @@ public class FlightBookingTest extends BaseUtility{
 	    Assert.assertTrue(isElementPresent(By.className("searchSummary"),driver));
 	    }
 
-
+            @AfterSuite
+	    public void quitBrowser(){
+	    {
+	    driver.quit();
+	    }
 
 
  
