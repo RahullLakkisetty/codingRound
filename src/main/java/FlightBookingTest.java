@@ -14,7 +14,7 @@ public class FlightBookingTest extends BaseUtility{
 	
 	private static WebDriver driver=null;
 
-        @FindBy(linkText = "Flights")
+            @FindBy(linkText = "Flights")
 	    private WebElement flightLink;
 	 
 	    @FindBy(linkText = "One Way")
@@ -36,7 +36,8 @@ public class FlightBookingTest extends BaseUtility{
 	    private WebElement searchFlights;
 	
 	    
-	     @BeforeSuite	
+	
+	    @BeforeSuite	
 	    public void intializeDriver() throws IOException
 	    {
 	    driver=UtilityBase.getWebDriver();
@@ -47,9 +48,7 @@ public class FlightBookingTest extends BaseUtility{
 	    PageFactory.initElements(driver, this);   
 	    }
 	
-	
-	   
-	 @Test
+	    @Test
 	    public void testThatResultsAppearForAOneWayJourney() 
 	    {
 	    clickButton(flightLink);
@@ -69,9 +68,5 @@ public class FlightBookingTest extends BaseUtility{
 	    {
 	    driver.quit();
 	    }
-
-
- 
-
 
 }
