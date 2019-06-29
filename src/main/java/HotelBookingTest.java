@@ -8,20 +8,28 @@ import org.testng.annotations.Test;
 
 public class HotelBookingTest {
 
-    WebDriver driver = new ChromeDriver();
+    
+       @FindBy(linkText = "Hotels")
+	   private WebElement hotelLink;
 
-    @FindBy(linkText = "Hotels")
-    private WebElement hotelLink;
+	   @FindBy(xpath = "//*[@id='Tags']")
+	   private WebElement localityTextBox;
 
-    @FindBy(id = "Tags")
-    private WebElement localityTextBox;
+	 
+	   
+	   @FindBy(xpath = "//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[5]/td[6]/a")
+	   private WebElement checkIn;
+	   
+	   @FindBy(xpath = "//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[1]/td[2]/a")
+	   private WebElement checkOut;
+	   
+	   @FindBy(id = "//*[@id='SearchHotelsButton']")
+	   private WebElement searchButton;
 
-    @FindBy(id = "SearchHotelsButton")
-    private WebElement searchButton;
-
-    @FindBy(id = "travellersOnhome")
-    private WebElement travellerSelection;
-
+	   @FindBy(xpath = "//*[@id='travellersOnhome']")
+	   private WebElement travellerSelection;
+    
+    
     @Test
     public void shouldBeAbleToSearchForHotels() {
         setDriverPath();
