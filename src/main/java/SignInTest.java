@@ -6,6 +6,21 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SignInTest {
+    
+    	@FindBy(xpath = "//*[@id='userAccountLink']")
+	    private WebElement yourTrips;
+	    
+	    @FindBy(xpath = "//*[@id='SignIn']")
+	    private WebElement signIn;
+	    
+	    @FindBy(xpath = "//*[@id='modal_window']")
+	    private WebElement modalWindow;
+	    
+	    @FindBy(xpath = "//*[@id='signInButton']")
+	    private WebElement frameSignIn;
+	    
+	    @FindBy(id = "errors1")
+	    private WebElement errorMessage;
 
     WebDriver driver = new ChromeDriver();
 
