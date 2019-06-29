@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 public class HotelBookingTest extedns UtilityBase {
 
+	   private static WebDriver driver=null;
     
            @FindBy(linkText = "Hotels")
 	   private WebElement hotelLink;
@@ -30,17 +31,16 @@ public class HotelBookingTest extedns UtilityBase {
 	
 	   @BeforeSuite	
 	   public void intializeDriver() throws IOException
-	  {
-	  
-	  driver=UtilityBase.getWebDriver();
-	  driver.get("https://www.cleartrip.com");
-	  waitFor(2000);
-	  driver.manage().window().maximize();
-	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-	  PageFactory.initElements(driver, this);
-	  
-	  }	
+	   {	  
+	   driver=UtilityBase.getWebDriver();
+	   driver.get("https://www.cleartrip.com");
+	   waitFor(2000);
+	   driver.manage().window().maximize();
+	   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	   PageFactory.initElements(driver, this);	  
+	   }	
     
+	
    	  @Test
 	  public void shouldBeAbleToSearchForHotels() 
 	  {
@@ -60,6 +60,5 @@ public class HotelBookingTest extedns UtilityBase {
 	  {
           driver.quit();
 	  }
-
 
 }
