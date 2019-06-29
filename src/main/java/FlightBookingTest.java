@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class FlightBookingTest extends BaseUtility{
+	
+	private static WebDriver driver=null;
 
         @FindBy(linkText = "Flights")
 	    private WebElement flightLink;
@@ -44,7 +46,23 @@ public class FlightBookingTest extends BaseUtility{
 	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	    PageFactory.initElements(driver, this);   
 	    }
+	
+	
 	   
+	 @Test
+	    public void testThatResultsAppearForAOneWayJourney() 
+	    {
+	    clickButton(flightLink);
+	    clearBox(source);
+	    enterText(source, "Bangalore",Keys.TAB);
+	    clearBox(destination);
+	    enterText(destination, "Delhi",Keys.TAB);
+            clickButton(departOn);
+	    selectDropDown(noOfPeople,"2");
+	    clickButton(searchFlights);
+	    System.out.println("Succesfully Booked your Flight"); 
+	    Assert.assertTrue(isElementPresent(By.className("searchSummary"),driver));
+	    }
 
 
 
