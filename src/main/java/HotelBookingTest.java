@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class HotelBookingTest {
 
     
-       @FindBy(linkText = "Hotels")
+           @FindBy(linkText = "Hotels")
 	   private WebElement hotelLink;
 
 	   @FindBy(xpath = "//*[@id='Tags']")
@@ -28,6 +28,22 @@ public class HotelBookingTest {
 
 	   @FindBy(xpath = "//*[@id='travellersOnhome']")
 	   private WebElement travellerSelection;
+	
+	
+	   @BeforeSuite	
+	   public void intializeDriver() throws IOException
+	  {
+	  
+	  driver=UtilityBase.getWebDriver();
+	  driver.get(LoadConfiguration("url"));
+	  waitFor(2000);
+	  driver.manage().window().maximize();
+	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	  PageFactory.initElements(driver, this);
+	  
+	  }
+	
+	
     
     
     @Test
