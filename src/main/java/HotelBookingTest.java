@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class HotelBookingTest {
+public class HotelBookingTest extedns UtilityBase {
 
     
            @FindBy(linkText = "Hotels")
@@ -33,7 +33,7 @@ public class HotelBookingTest {
 	  {
 	  
 	  driver=UtilityBase.getWebDriver();
-	  driver.get(LoadConfiguration("url"));
+	  driver.get("https://www.cleartrip.com");
 	  waitFor(2000);
 	  driver.manage().window().maximize();
 	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
