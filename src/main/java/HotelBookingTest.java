@@ -14,9 +14,7 @@ public class HotelBookingTest {
 
 	   @FindBy(xpath = "//*[@id='Tags']")
 	   private WebElement localityTextBox;
-
-	 
-	   
+   
 	   @FindBy(xpath = "//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[5]/td[6]/a")
 	   private WebElement checkIn;
 	   
@@ -41,37 +39,27 @@ public class HotelBookingTest {
 	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	  PageFactory.initElements(driver, this);
 	  
+	  }	
+    
+   	  @Test
+	  public void shouldBeAbleToSearchForHotels() 
+	  {
+	  clickButton(hotelLink);
+	  waitFor(2000);
+	  enterText(localityTextBox, "Indiranagar, Bangalore",Keys.TAB);
+	  clickButton(checkIn);
+	  clickButton(checkOut);
+	  selectDropDown(travellerSelection,"2 rooms, 4 adults");
+          waitFor(2000);
+	  clickButton(searchButton);  
 	  }
-	
-	
-    
-    
-    @Test
-    public void shouldBeAbleToSearchForHotels() {
-        setDriverPath();
+	  
 
-        driver.get("https://www.cleartrip.com/");
-        hotelLink.click();
+	  @AfterSuite
+	  public void quitBrowser()  
+	  {
+          driver.quit();
+	  }
 
-        localityTextBox.sendKeys("Indiranagar, Bangalore");
-
-        new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
-        searchButton.click();
-
-        driver.quit();
-
-    }
-
-    private void setDriverPath() {
-        if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
-        if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        }
-        if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-        }
-    }
 
 }
