@@ -6,10 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+/* Intializes WebDriver, Automate HotelBooking Page and Closes web browser */
 public class HotelBookingTest extedns UtilityBase {
 
 	   private static WebDriver driver=null;
     
+	   //Page Object Elements of HotelBooking Page
            @FindBy(linkText = "Hotels")
 	   private WebElement hotelLink;
 
@@ -29,6 +31,7 @@ public class HotelBookingTest extedns UtilityBase {
 	   private WebElement travellerSelection;
 	
 	
+           //Intializes WebDriver from UtilityBase and opens Cleartrip website
 	   @BeforeSuite	
 	   public void intializeDriver() throws IOException
 	   {	  
@@ -40,7 +43,7 @@ public class HotelBookingTest extedns UtilityBase {
 	   PageFactory.initElements(driver, this);	  
 	   }	
     
-	
+	 //Opens Hotelbooking web page and searches Hotels in IndiraNagar
    	  @Test
 	  public void shouldBeAbleToSearchForHotels() 
 	  {
@@ -54,7 +57,8 @@ public class HotelBookingTest extedns UtilityBase {
 	  clickButton(searchButton);  
 	  }
 	  
-
+          	    
+	  //Closes browser after executing test
 	  @AfterSuite
 	  public void quitBrowser()  
 	  {
