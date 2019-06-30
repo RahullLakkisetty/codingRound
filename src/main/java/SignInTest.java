@@ -10,10 +10,12 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+/* Intializes WebDriver, Automate SignIn Page with null credentials and Closes web browser */
 public class SignInTest {
 	
 	    private static WebDriver driver=null;
     
+	    //Page Object Elements of SignIn Page
     	    @FindBy(xpath = "//*[@id='userAccountLink']")
 	    private WebElement yourTrips;
 	    
@@ -31,7 +33,7 @@ public class SignInTest {
 	
 	
 
-            /*Intialize WebDriver from UtilityBase*/
+             //Intializes WebDriver from UtilityBase and opens Cleartrip website
 	    @BeforeSuite	
 	    public void intializeDriver() throws IOException 
 	    {
@@ -42,7 +44,7 @@ public class SignInTest {
 	    PageFactory.initElements(driver, this);
 	    }
 
-	
+	    //Opens SignIn web page and SignIn with Null credentials to capture and assert errors
             @Test
 	    public void shouldThrowAnErrorIfSignInDetailsAreMissing()
 	    {
@@ -54,7 +56,7 @@ public class SignInTest {
 	    Assert.assertTrue(errorMsg.contains("There were errors in your submission"));	
 	    }
 	
-	
+	    //Closes browser after executing test
 	    @AfterSuite
 	    public void quitBrowser()
 	    {
