@@ -10,10 +10,12 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+/* Intializes WebDriver, Automate FlightBooking Page and Closes web browser */ 
 public class FlightBookingTest extends BaseUtility{
 	
 	private static WebDriver driver=null;
 
+	   //Page Object Elements of FlightBooking Page
             @FindBy(linkText = "Flights")
 	    private WebElement flightLink;
 	 
@@ -27,7 +29,7 @@ public class FlightBookingTest extends BaseUtility{
 	    private WebElement destination;
 
 	    @FindBy(xpath = "//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[5]/td[6]/a")
-		private WebElement departOn;
+	    private WebElement departOn;
 	    
 	    @FindBy(id = "Adults")
 	    private WebElement noOfPeople;
@@ -36,7 +38,7 @@ public class FlightBookingTest extends BaseUtility{
 	    private WebElement searchFlights;
 	
 	    
-	
+            //Intializes WebDriver from UtilityBase and opens Cleartrip website
 	    @BeforeSuite	
 	    public void intializeDriver() throws IOException
 	    {
@@ -48,6 +50,8 @@ public class FlightBookingTest extends BaseUtility{
 	    PageFactory.initElements(driver, this);   
 	    }
 	
+	
+	    //Opens Flightbooking web page and searches flights from Bangalore to Delhi
 	    @Test
 	    public void testThatResultsAppearForAOneWayJourney() 
 	    {
@@ -63,6 +67,8 @@ public class FlightBookingTest extends BaseUtility{
 	    Assert.assertTrue(isElementPresent(By.className("searchSummary"),driver));
 	    }
 
+
+	    //Closes browser after executing test
             @AfterSuite
 	    public void quitBrowser(){
 	    {
