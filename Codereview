@@ -12,6 +12,7 @@ Added Page object elements for Flightbooking webpage
 BaseUtility
 Created BaseUtility java test which consists of functionalities for SignInTest, HotelBookingTest and FlightBookingTest.
 
+
 Implmented methods
 
 WebDriver Intialization - To intialize Chromedriver
@@ -24,6 +25,7 @@ gettext - To capture text from SignIn
 dropDown - To handle dropDown elements in hotel and flight booking
 clickButton - To click button element in web page
 
+
 Code reusability by using above methods in SignInTest, HotelBookingTest and FlightBookingTest by extending Baseutility.
 
 
@@ -33,11 +35,12 @@ Inheritence concept by extending BaseUtility file
 Method overloading(Polymorphism) by enterText method in BaseUtility file
 Abstraction by hinding methods in BaseUtility file
 
-Updated every test case with testNG annotations.
+
+Code refactory by testNg and Page object model. 
 
 @Before Suite to Intialize webDriver and open clear trip website and load page objects.
 @Test to run actual functionality (SignIn,FlightBooking,HotelBooking)
 @After Suite to close the browser after completing execution.
 
-Code refactory by testNg and Page object model.
+
 
